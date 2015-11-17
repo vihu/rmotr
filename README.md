@@ -1,1 +1,1 @@
-# rmotr [Advanced Python Class](sis.rmotr.com)
+# rmotr [Advanced Python Class](http://sis.rmotr.com)
