@@ -1,4 +1,5 @@
 # placeholder for bubble sort
+import unittest
 
 class Bubbler(object):
     def __init__(self, sample):
@@ -15,8 +16,6 @@ class Bubbler(object):
 
     def __repr__(self):
         return 'Bubbler({})'.format(self.sample)
-
-import unittest
 
 class BubblerTestCases(unittest.TestCase):
     def test_simple(self):
@@ -41,4 +40,3 @@ class BubblerTestCases(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
