@@ -10,6 +10,8 @@ Extras:
 * Try with a while loop
 * Investigate special list methods or python libraries. You can use whatever you want now.
 """
+import unittest
+import timeit
 
 
 def max_in_list(a_list):
@@ -18,7 +20,7 @@ def max_in_list(a_list):
         max_so_far = a_list[0]
     else:
         return None
-    for i in a_list:
+    for i in a_list[1:]:
         if i > max_so_far:
             max_so_far = i
     return max_so_far
@@ -26,7 +28,6 @@ def max_in_list(a_list):
 
 # Don't change below this line! These tests should pass
 
-import unittest
 
 class MaxInListTestCase(unittest.TestCase):
     def test_max_in_first_position(self):
@@ -49,4 +50,5 @@ class MaxInListTestCase(unittest.TestCase):
         self.assertEqual(max_in_list([]), None)
 
 if __name__ == '__main__':
-    unittest.main()
+    f = unittest.main()
+    print timeit.timeit(f, number=100000)

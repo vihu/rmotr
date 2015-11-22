@@ -13,7 +13,7 @@ import unittest
 def divisible_numbers(a_list, a_list_of_terms):
     # use 2 list comps
     # return [num for num in a_list if num%([a_list_of_terms[0]*k for k in a_list_of_terms[1:]][0]) == 0]
-    return [num for num in a_list]
+    pass
 
 
 class DivisibleNumbersTestCase(unittest.TestCase):
