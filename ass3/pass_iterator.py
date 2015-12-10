@@ -1,6 +1,7 @@
 """
 Write a simple random password generator using iterators. The generator can accept two parameters:
-* available_chars: The characters to use to generate the password. OPTIONAL. Default: A set of characters, digits and symbols. (hint, check the string module)
+* available_chars: The characters to use to generate the password
+OPTIONAL. Default: A set of characters, digits and symbols. (hint, check the string module)
 * length: The length of the password. OPTIONAL. Default: 8
 
 pass_generator = SimplePasswordGenerator()
@@ -13,16 +14,30 @@ pass_generator = SimplePasswordGenerator(available_chars=['a', 'b'], length=4)
 next(pass_generator)  # 'abba'
 
 """
+import random
 import unittest
+import string
 
 
 class SimplePasswordGenerator(object):
+    def __init__(self, available_chars=set(), length=8):
+        self.available_chars = available_chars
+        self.length = length
+
     def __iter__(self):
-        pass
+        return self
 
     def next(self):  # use __next__ in Python 3.x
-        pass
-
+        letters = list(string.ascii_letters)
+        digits = range(1, 10)
+        symbols = list(string.punctuation)
+        if not self.length:
+            raise StopIteration
+        if self.available_chars:
+            choices = list(self.available_chars)*self.length
+        else:
+            choices = letters + digits + symbols
+        return random.sample(choices, self.length)
 
 
 class SimplePasswordGeneratorTestCase(unittest.TestCase):
