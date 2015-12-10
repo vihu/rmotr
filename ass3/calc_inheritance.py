@@ -33,10 +33,12 @@ class Calculator(object):
         self.ops = kwds
 
     def calculate(self, *args):
-        if args[-1] not in ['add', 'subtract']:
+        if args[-1] == 'add':
+            return self.ops['operations']['add'](*args[:-1]).operate()
+        elif args[-1] == 'subtract':
+            return self.ops['operations']['subtract'](*args[:-1]).operate()
+        else:
             raise OperationInvalidException
-        elif args[-1] == 'add':
-            ops = self.ops.values()
 
 
 class CalculatorTestCase(unittest.TestCase):
